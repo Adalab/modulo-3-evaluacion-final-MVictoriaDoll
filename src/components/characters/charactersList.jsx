@@ -1,28 +1,24 @@
+import PropTypes from 'prop-types';
+import CharacterItem from './characterItem';
+
+
 function CharactersList({ characters }) {
 
-    const translateSpecie = (species) => {
-        if (species === 'human') {
-            return 'Humano';
-        }
-        else if (species === 'half-giant') {
-            return 'Mitad-Gigante';
-        }
-        else {
-            return 'otro';
-        }
-    }
+
 
     return (
         <ul className='characters_card'>
             {characters.map((character) => (
                 <li key={character.id} className='character_card'>
-                    <img className='character_img' src={character.image} alt={character.name} />
-                    <h2 className='character_name'>{character.name}</h2>  <p className='character_house'>{translateSpecie(character.species)}</p>
-
+                    <CharacterItem character={character}/>
                 </li>
             ))}
         </ul>
     );
 }
+
+CharactersList.propTypes = {
+    characters: PropTypes.array.isRequired,
+};
 
 export default CharactersList;
