@@ -7,6 +7,18 @@ function App() {
 
   const [characters, setCharacters] = useState([]);
 
+  const translateSpecie = (species) => {
+    if(species === 'human') {
+      return 'Humano';
+    }
+    else if (species === 'half-giant'){
+      return 'Mitad-Gigante';
+    }
+    else {
+      return 'otro';
+    }
+  }
+
   useEffect(() => {
     fetch('https://hp-api.onrender.com/api/characters/house/gryffindor')
       .then(response => response.json())
@@ -49,7 +61,7 @@ function App() {
           {characters.map((character) =>( 
             <li key={character.id} className='character_card'>
               <img className='character_img' src={character.image} alt={character.name} />
-              <h2 className='character_name'>{character.name}</h2>  <p className='character_house'>{character.house}</p>
+              <h2 className='character_name'>{character.name}</h2>  <p className='character_house'>{translateSpecie(character.species)}</p>
 
             </li>
           ))}
