@@ -1,23 +1,13 @@
 import '../styles/App.scss';
 import logo from '../images/Logo_HarryPotter_png.png';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import CharactersList from './characters/charactersList';
 
 
 function App() {
 
   const [characters, setCharacters] = useState([]);
 
-  const translateSpecie = (species) => {
-    if(species === 'human') {
-      return 'Humano';
-    }
-    else if (species === 'half-giant'){
-      return 'Mitad-Gigante';
-    }
-    else {
-      return 'otro';
-    }
-  }
 
   useEffect(() => {
     fetch('https://hp-api.onrender.com/api/characters/house/gryffindor')
@@ -57,15 +47,9 @@ function App() {
 
           </div>
         </form>
-        <ul className='characters_card'>
-          {characters.map((character) =>( 
-            <li key={character.id} className='character_card'>
-              <img className='character_img' src={character.image} alt={character.name} />
-              <h2 className='character_name'>{character.name}</h2>  <p className='character_house'>{translateSpecie(character.species)}</p>
 
-            </li>
-          ))}
-        </ul>
+        <CharactersList characters={characters} />
+
       </main>
 
       {/*<footer>
