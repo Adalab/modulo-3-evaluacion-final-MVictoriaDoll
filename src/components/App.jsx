@@ -2,11 +2,19 @@ import '../styles/App.scss';
 import logo from '../images/Logo_HarryPotter_png.png';
 import { useState, useEffect } from "react";
 import CharactersList from './characters/charactersList';
+import CharacterFilterName from './characters/characterFilterName';
 
 
 function App() {
 
   const [characters, setCharacters] = useState([]);
+  const [nameFilter, setNameFilter] = useState('');
+
+  const handleInputName = (ev) => {
+    setNameFilter(ev.currentTarget.value);
+  }
+
+  console.log(nameFilter);
 
 
   useEffect(() => {
@@ -19,6 +27,8 @@ function App() {
 
   }, []);
 
+  const filteredCharacters = characters.filter(character => character.name.toLowerCase().includes(nameFilter.toLowerCase())
+  );
 
   return (
     <div className='page'>
@@ -28,27 +38,26 @@ function App() {
 
       <main className='filters'>
         <form>
-          <div className='form__character'>
-            <label>Busca por Personaje</label>
+         <CharacterFilterName 
+         nameFilter={nameFilter}
+         handleInputName={handleInputName}
+          />
+          <div className='form_house'>
+            <label>Selecciona la casa</label>
             <div>
-              <input type="text" name="characterSearch" id="characterSearch" />
+              <select name="houseSelect" id="houseSelect">
+                <option value="gryffindor">Gryffindor</option>
+                <option value="slytherin">Slytherin</option>
+                <option value="ravenclaw">Ravenclaw</option>
+                <option value="hufflepuff">Hufflepuff</option>
+              </select>
             </div>
-            <div className='form_house'>
-              <label>Selecciona la casa</label>
-              <div>
-                <select name="houseSelect" id="houseSelect">
-                  <option value="gryffindor">Gryffindor</option>
-                  <option value="slytherin">Slytherin</option>
-                  <option value="ravenclaw">Ravenclaw</option>
-                  <option value="hufflepuff">Hufflepuff</option>
-                </select>
-              </div>
-            </div>
-
           </div>
         </form>
 
-        <CharactersList characters={characters} />
+        <CharactersList 
+        characters={filteredCharacters}
+         />
 
       </main>
 
