@@ -26,6 +26,6 @@ function CharacterItem({ character }) {
 
 CharacterItem.propTypes = {
     character: PropTypes.object.isRequired
-  };
+};
 
 export default CharacterItem;

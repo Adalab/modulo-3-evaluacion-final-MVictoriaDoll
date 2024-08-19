@@ -3,32 +3,41 @@ import logo from '../images/Logo_HarryPotter_png.png';
 import { useState, useEffect } from "react";
 import CharactersList from './characters/charactersList';
 import CharacterFilterName from './characters/characterFilterName';
+import CharacterFilterHouse from './characters/characterFilterHouse.jsx';
 
 
 function App() {
 
   const [characters, setCharacters] = useState([]);
   const [nameFilter, setNameFilter] = useState('');
+  const [houseFilter, setHouseFilter] = useState('gryffindor');
+
 
   const handleInputName = (ev) => {
     setNameFilter(ev.currentTarget.value);
   }
 
-  console.log(nameFilter);
-
+  const handleChangeHouseFilter = (ev) => {
+    const newValue = ev.currentTarget.value;
+    setHouseFilter(newValue);
+  }
 
   useEffect(() => {
-    fetch('https://hp-api.onrender.com/api/characters/house/gryffindor')
+    fetch(`https://hp-api.onrender.com/api/characters/house/${houseFilter}`)
       .then(response => response.json())
       .then(responseData => {
         console.log(responseData);
+        console.log('Response Data:', responseData);
         setCharacters(responseData);
       });
 
-  }, []);
+  }, [houseFilter]);
 
-  const filteredCharacters = characters.filter(character => character.name.toLowerCase().includes(nameFilter.toLowerCase())
-  );
+
+  const filteredCharacters = characters
+    .filter(character => character.name.toLowerCase().includes(nameFilter.toLowerCase()))
+    .filter(character => character.house.toLowerCase() === houseFilter.toLowerCase());
+  console.log('Filtered Characters:', filteredCharacters);
 
   return (
     <div className='page'>
@@ -38,26 +47,19 @@ function App() {
 
       <main className='filters'>
         <form>
-         <CharacterFilterName 
-         nameFilter={nameFilter}
-         handleInputName={handleInputName}
+          <CharacterFilterName
+            nameFilter={nameFilter}
+            handleInputName={handleInputName}
           />
-          <div className='form_house'>
-            <label>Selecciona la casa</label>
-            <div>
-              <select name="houseSelect" id="houseSelect">
-                <option value="gryffindor">Gryffindor</option>
-                <option value="slytherin">Slytherin</option>
-                <option value="ravenclaw">Ravenclaw</option>
-                <option value="hufflepuff">Hufflepuff</option>
-              </select>
-            </div>
-          </div>
+          <CharacterFilterHouse
+            houseFilter={houseFilter}
+            handleChangeHouseFilter={handleChangeHouseFilter}
+          />
         </form>
 
-        <CharactersList 
-        characters={filteredCharacters}
-         />
+        <CharactersList
+          characters={filteredCharacters}
+        />
 
       </main>
 
