@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import CharactersList from './characters/charactersList';
 import CharacterFilterName from './characters/characterFilterName';
 import CharacterFilterHouse from './characters/characterFilterHouse.jsx';
+import { Routes, Route, UNSAFE_DataRouterStateContext } from 'react-router-dom';
+import CharacterDetail from './characters/CharacterDetail.jsx';
+
 
 
 function App() {
@@ -46,20 +49,29 @@ function App() {
       </header>
 
       <main className='filters'>
-        <form>
-          <CharacterFilterName
-            nameFilter={nameFilter}
-            handleInputName={handleInputName}
-          />
-          <CharacterFilterHouse
-            houseFilter={houseFilter}
-            handleChangeHouseFilter={handleChangeHouseFilter}
-          />
-        </form>
 
-        <CharactersList
-          characters={filteredCharacters}
-        />
+        <Routes>
+          <Route path='/' element={
+            <>
+              <form>
+                <CharacterFilterName
+                  nameFilter={nameFilter}
+                  handleInputName={handleInputName}
+                />
+                <CharacterFilterHouse
+                  houseFilter={houseFilter}
+                  handleChangeHouseFilter={handleChangeHouseFilter}
+                />
+              </form>
+
+              <CharactersList
+                characters={filteredCharacters}
+              />
+            </>
+          } />
+          <Route path='/detail/:id' element={<CharacterDetail/>} />
+
+        </Routes>
 
       </main>
 
