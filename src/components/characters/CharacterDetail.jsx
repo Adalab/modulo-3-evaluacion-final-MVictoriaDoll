@@ -3,25 +3,29 @@ import { translateData } from '../../Utils/Translations';
 import { useParams } from "react-router-dom";
 
 
-function CharacterDetail({findCharacter}) {
+function CharacterDetail({ findCharacter }) {
 
     const params = useParams();
-    const characterToShow = findCharacter (params.id);
-    
+    const characterToShow = findCharacter(params.id);
+
     const status = characterToShow.alive ? "vivo" : 'Muerto';
 
     return (
-        <div>
-            <button>Volver</button>
-            <div className="col2">
-                <img src={characterToShow.image} alt={characterToShow.name}/>
+        <div className='detail-container'>
+            <div>
+                <a className='back-link' href="/">Volver</a>
             </div>
-            <p>Nombre: {characterToShow.name}</p>
-            <p>Status {status}</p>
-            <p>Especie: {translateData (characterToShow.species)}</p> 
-            <p>Genero: {translateData (characterToShow.gender)}</p>
-            <p>Casa: {characterToShow.house}</p>
-            <p>ID: {params.id}</p>
+            <div className="character-detail">
+                <img src={characterToShow.image} alt={characterToShow.name} />
+            </div>
+            <div className='character-info'>
+                <p className='character-info'>Nombre: {characterToShow.name}</p>
+                <p className='character-info'>Status: {status}</p>
+                <p className='character-info'>Especie: {translateData(characterToShow.species)}</p>
+                <p className='character-info'>Genero: {translateData(characterToShow.gender)}</p>
+                <p className='character-info'>Casa: {characterToShow.house}</p>
+                
+            </div>
 
         </div>
 
