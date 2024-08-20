@@ -24,7 +24,6 @@ function CharacterDetail({ findCharacter }) {
                 <p className='character-info'>Especie: {translateData(characterToShow.species)}</p>
                 <p className='character-info'>Genero: {translateData(characterToShow.gender)}</p>
                 <p className='character-info'>Casa: {characterToShow.house}</p>
-                
             </div>
 
         </div>
