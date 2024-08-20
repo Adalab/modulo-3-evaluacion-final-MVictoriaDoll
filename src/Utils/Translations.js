@@ -15,23 +15,3 @@ export const translateData = (value) => {
 };
 
 
-
-
-
-
-
-
-/*export const translateData = (species) => {
-    if (species === 'human') {
-        return 'Humano';
-    }
-    else if (species === 'half-giant') {
-        return 'Mitad-Gigante';
-    }
-    else if (species === 'werewolf') {
-        return 'Hombre-Lobo';
-    }
-    else {
-        return 'otro';
-    }
-};*/
