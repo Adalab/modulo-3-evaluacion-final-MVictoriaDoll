@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import CharactersList from './characters/charactersList';
 import CharacterFilterName from './characters/characterFilterName';
 import CharacterFilterHouse from './characters/characterFilterHouse.jsx';
-import { Routes, Route, UNSAFE_DataRouterStateContext } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import CharacterDetail from './characters/CharacterDetail.jsx';
 
 
@@ -35,6 +35,12 @@ function App() {
       });
 
   }, [houseFilter]);
+
+
+  const findCharacter = (id) => {
+    const characterToShow = characters.find(character => character.id === id);
+    return characterToShow;
+  }
 
 
   const filteredCharacters = characters
@@ -69,7 +75,7 @@ function App() {
               />
             </>
           } />
-          <Route path='/detail/:id' element={<CharacterDetail/>} />
+          <Route path='/detail/:id' element={<CharacterDetail findCharacter={findCharacter} />} />
 
         </Routes>
 
