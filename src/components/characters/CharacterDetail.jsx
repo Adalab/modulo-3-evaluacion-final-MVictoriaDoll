@@ -10,13 +10,17 @@ function CharacterDetail({ findCharacter }) {
 
     const status = characterToShow.alive ? "vivo" : 'Muerto';
 
+    const imageUrlDetail = characterToShow.image ? characterToShow.image : 'https://via.placeholder.com/210x295/ffffff/666666/?text=HarryPotter';
+
+    
+
     return (
         <div className='detail-container'>
             <div>
                 <a className='back-link' href="/">Volver</a>
             </div>
             <div className="character-detail">
-                <img src={characterToShow.image} alt={characterToShow.name} />
+                <img src={imageUrlDetail} alt={characterToShow.name} />
             </div>
             <div className='character-info'>
                 <p className='character-info'>Nombre: {characterToShow.name}</p>

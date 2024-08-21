@@ -59,7 +59,7 @@ function App() {
         <Routes>
           <Route path='/' element={
             <>
-              <form>
+              <form className='form_filters'>
                 <CharacterFilterName
                   nameFilter={nameFilter}
                   handleInputName={handleInputName}

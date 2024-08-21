@@ -3,17 +3,55 @@
 
 .harry-potter-logo {
   text-align: center;
-  width: 200px;
+  width: 250px;
   height: auto;
   display: block;
   margin: 20px auto;
 }
 
+
+.form__character{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px; 
+} 
+
+.form_house{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px; 
+
+}
+
+.input_character_search{
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #d4a74b;
+  background-color: #877e7c;
+  font-size: 16px;
+  color: white;
+}
+
+.select_character_house{
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #d4a74b;
+  background-color: #877e7c;
+  font-size: 16px;
+  color: white;
+
+}
 .characters_card {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 50px;
   padding: 0;
   list-style: none;
   gap: 20px;
@@ -39,10 +77,12 @@
   margin: 10px;
 }
 
-.character_house {
-  font-size: 14px;
-  color: #333; 
-  margin: 0 10px 10px;
+.search_Name_btn {
+  color: white;
+}
+
+.search_House_btn {
+  color: white;
 }
 
 footer {
