@@ -16,6 +16,11 @@ function App() {
   const [houseFilter, setHouseFilter] = useState('gryffindor');
 
 
+const handleFormSubmit = (ev) => {
+  ev.preventDefault(); 
+};
+
+
   const handleInputName = (ev) => {
     setNameFilter(ev.currentTarget.value);
   }
@@ -45,8 +50,9 @@ function App() {
 
   const filteredCharacters = characters
     .filter(character => character.name.toLowerCase().includes(nameFilter.toLowerCase()))
-    .filter(character => character.house.toLowerCase() === houseFilter.toLowerCase());
-  console.log('Filtered Characters:', filteredCharacters);
+    .filter(character => character.house.toLowerCase() === houseFilter.toLowerCase())
+    
+
 
   return (
     <div className='page'>
@@ -59,7 +65,7 @@ function App() {
         <Routes>
           <Route path='/' element={
             <>
-              <form className='form_filters'>
+              <form onSubmit={handleFormSubmit} className='form_filters'>
                 <CharacterFilterName
                   nameFilter={nameFilter}
                   handleInputName={handleInputName}

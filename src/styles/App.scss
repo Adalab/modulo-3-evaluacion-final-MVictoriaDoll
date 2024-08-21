@@ -22,9 +22,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 30px;
   margin-bottom: 20px; 
 
+}
+
+.form_filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .input_character_search{
@@ -35,6 +41,9 @@
   background-color: #877e7c;
   font-size: 16px;
   color: white;
+  box-sizing: border-box ;
+  line-height: 20px;
+ 
 }
 
 .select_character_house{
@@ -45,8 +54,12 @@
   background-color: #877e7c;
   font-size: 16px;
   color: white;
+  box-sizing: border-box;
+  line-height: 20px;
 
 }
+
+
 .characters_card {
   display: flex;
   flex-wrap: wrap;
@@ -61,8 +74,12 @@
   background-color: #d4a74b;
   border-radius: 8px;
   overflow: hidden;
-  width: 200px;
+  width: 16%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.filters {
+  margin-inline: 30px;
 }
 
 .character_img {
@@ -78,10 +95,14 @@
 }
 
 .search_Name_btn {
+  display: flex;
+  align-items: center;
   color: white;
 }
 
 .search_House_btn {
+  display: flex;
+  align-items: center;
   color: white;
 }
 
@@ -155,9 +176,15 @@ footer {
 .back-link {
   text-decoration: none;
   color: #fff ;
+  margin-left: 160px;
+  margin-bottom: 50px;
 }
 
 .details {
   text-decoration: none;
   text-align: center;
+}
+
+.Error_message {
+  display: none;
 }

@@ -17,7 +17,7 @@ function CharacterDetail({ findCharacter }) {
     return (
         <div className='detail-container'>
             <div>
-                <a className='back-link' href="/">Volver</a>
+                <a className='back-link' href="/"> Volver</a>
             </div>
             <div className="character-detail">
                 <img src={imageUrlDetail} alt={characterToShow.name} />
