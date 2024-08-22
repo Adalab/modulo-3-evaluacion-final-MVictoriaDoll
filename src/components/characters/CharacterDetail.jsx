@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { translateData } from '../../Utils/Translations';
 import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
 
 
 function CharacterDetail({ findCharacter }) {
@@ -12,12 +14,13 @@ function CharacterDetail({ findCharacter }) {
 
     const imageUrlDetail = characterToShow.image ? characterToShow.image : 'https://via.placeholder.com/210x295/ffffff/666666/?text=HarryPotter';
 
-    
+
 
     return (
         <div className='detail-container'>
             <div>
-                <a className='back-link' href="/"> Volver</a>
+                <Link className='back-link' to='/'>Volver</Link>
+
             </div>
             <div className="character-detail">
                 <img src={imageUrlDetail} alt={characterToShow.name} />

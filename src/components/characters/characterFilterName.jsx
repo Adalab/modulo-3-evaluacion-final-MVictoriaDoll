@@ -9,9 +9,6 @@ function CharacterFilterName({ nameFilter, handleInputName }) {
             <div>
                 <input className='input_character_search' value={nameFilter} onInput={handleInputName} type="text" name="characterSearch" id="characterSearch" />
             </div>
-            <div className='Error_message'>
-                No hay ningun personaje que coincida con {}
-            </div>
         </div>
 
     );

@@ -22,11 +22,8 @@ const handleFormSubmit = (ev) => {
 
 
   const handleInputName = (ev) => {
-    const NameFiltered = setNameFilter(ev.currentTarget.value);
-
-    if (NameFiltered.length === 0 ) {
-      return `${NameFiltered} no coincide con ningun personaje`
-    }
+    setNameFilter(ev.currentTarget.value);
+   
   }
 
 
@@ -81,9 +78,13 @@ const handleFormSubmit = (ev) => {
                 />
               </form>
 
+              {filteredCharacters.length === 0 ? (
+              <p>No hay ningún personaje que coincida con la palabra {nameFilter}.</p>
+            ) : (
               <CharactersList
                 characters={filteredCharacters}
               />
+            )}
             </>
           } />
           <Route path='/detail/:id' element={<CharacterDetail findCharacter={findCharacter} />} />
