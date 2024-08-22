@@ -22,8 +22,13 @@ const handleFormSubmit = (ev) => {
 
 
   const handleInputName = (ev) => {
-    setNameFilter(ev.currentTarget.value);
+    const NameFiltered = setNameFilter(ev.currentTarget.value);
+
+    if (NameFiltered.length === 0 ) {
+      return `${NameFiltered} no coincide con ningun personaje`
+    }
   }
+
 
   const handleChangeHouseFilter = (ev) => {
     const newValue = ev.currentTarget.value;
