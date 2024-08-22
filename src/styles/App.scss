@@ -27,6 +27,14 @@
 
 }
 
+.form_gender {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px; 
+}
+
 .form_filters {
   display: flex;
   flex-direction: column;
@@ -59,6 +67,18 @@
 
 }
 
+.select_character_gender {
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #d4a74b;
+  background-color: #877e7c;
+  font-size: 16px;
+  color: white;
+  box-sizing: border-box;
+  line-height: 20px;
+
+}
 
 .characters_card {
   display: flex;
@@ -106,15 +126,10 @@
   color: white;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #333;
+.search_Gender_btn {
+  display: flex;
+  align-items: center;
   color: white;
-  text-align: center;
-  padding: 10px 0;
 }
 
 .detail-container {
@@ -185,9 +200,6 @@ footer {
   text-align: center;
 }
 
-.Error_message {
-  display: none;
-}
 
 @media screen and (max-width: 768px) {
   .input_character_search,

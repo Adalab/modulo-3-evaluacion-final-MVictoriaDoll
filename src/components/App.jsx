@@ -6,6 +6,7 @@ import CharacterFilterName from './characters/characterFilterName';
 import CharacterFilterHouse from './characters/characterFilterHouse.jsx';
 import { Routes, Route } from 'react-router-dom';
 import CharacterDetail from './characters/CharacterDetail.jsx';
+import CharacterFilterGender from './characters/charactersFilterGender.jsx';
 
 
 
@@ -14,6 +15,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [nameFilter, setNameFilter] = useState('');
   const [houseFilter, setHouseFilter] = useState('gryffindor');
+  const [ genderFilter, setGenderFilter] = useState('all');
 
 
 const handleFormSubmit = (ev) => {
@@ -32,8 +34,26 @@ const handleFormSubmit = (ev) => {
     setHouseFilter(newValue);
   }
 
+  const handleChangeGenderFilter = (ev) => {
+    const newValueGender = ev.currentTarget.value;
+    setGenderFilter(newValueGender);
+    console.log('genero', genderFilter)
+  }
+
+  
+  let filteredCharacters = characters
+    .filter(character => character.name.toLowerCase().includes(nameFilter.toLowerCase()))
+    .filter(character => character.house.toLowerCase() === houseFilter.toLowerCase())
+    if (genderFilter !== 'all') {
+      filteredCharacters = filteredCharacters.filter(character => character.gender.toLowerCase() === genderFilter.toLowerCase());
+    }
+
   useEffect(() => {
-    fetch(`https://hp-api.onrender.com/api/characters/house/${houseFilter}`)
+    let url = `https://hp-api.onrender.com/api/characters/house/${houseFilter}`;
+    if (genderFilter !== 'all') {
+      url += `?gender=${genderFilter}`;
+    }
+    fetch(url)
       .then(response => response.json())
       .then(responseData => {
         console.log(responseData);
@@ -41,19 +61,13 @@ const handleFormSubmit = (ev) => {
         setCharacters(responseData);
       });
 
-  }, [houseFilter]);
+  }, [houseFilter, genderFilter]);
 
 
   const findCharacter = (id) => {
     const characterToShow = characters.find(character => character.id === id);
     return characterToShow;
   }
-
-
-  const filteredCharacters = characters
-    .filter(character => character.name.toLowerCase().includes(nameFilter.toLowerCase()))
-    .filter(character => character.house.toLowerCase() === houseFilter.toLowerCase())
-    
 
 
   return (
@@ -76,6 +90,12 @@ const handleFormSubmit = (ev) => {
                   houseFilter={houseFilter}
                   handleChangeHouseFilter={handleChangeHouseFilter}
                 />
+                <CharacterFilterGender
+                genderFilter={genderFilter}
+                handleChangeGenderFilter={handleChangeGenderFilter}
+                
+                />
+
               </form>
 
               {filteredCharacters.length === 0 ? (
