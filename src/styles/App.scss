@@ -138,11 +138,12 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  max-width: 900px;
+  max-width: 600px;
   margin: 0 auto;
   background-color: #630000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 .character-detail img {
   display: flex;
@@ -150,14 +151,14 @@
   width: 250px;
   border-radius: 8px;
   margin-right: 20px;
+  margin-top: 15px;
 }
 
 .character-detail {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .character-detail-text {
@@ -179,9 +180,10 @@
 }
 
 .character-info {
-  display: flex;
-  flex-direction: column;
-  color:#fff;
+  margin-top: 20px;
+  text-align: center;
+  color: grey;
+  font-size: 18px;
 }
 
 .character-info p {
@@ -190,9 +192,14 @@
 
 .back-link {
   text-decoration: none;
-  color: #fff ;
+  color: grey ;
   margin-left: 160px;
   margin-bottom: 50px;
+  font-size: 18px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
 }
 
 .details {
@@ -202,8 +209,7 @@
 
 
 @media screen and (max-width: 768px) {
-  .input_character_search,
-  .select_character_house {
+  .input_character_search {
     width: 200px;
     padding: 5px;
     border-radius: 5px;
@@ -215,6 +221,29 @@
     line-height: 20px;
   }
 
+  .select_character_house {
+    width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #d4a74b;
+    background-color: #877e7c;
+    font-size: 12px;
+    color: white;
+    box-sizing: border-box;
+    line-height: 20px;
+  }
+  .select_character_gender{
+        width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #d4a74b;
+    background-color: #877e7c;
+    font-size: 12px;
+    color: white;
+    box-sizing: border-box;
+    line-height: 20px;
+
+  }  
   .character_card {
     background-color: #d4a74b;
     border-radius: 8px;
