@@ -219,6 +219,8 @@
     color: white;
     box-sizing: border-box;
     line-height: 20px;
+    font-size: 12px;
+    align-items: center;
   }
 
   .select_character_house {
@@ -231,9 +233,10 @@
     color: white;
     box-sizing: border-box;
     line-height: 20px;
+    align-items: center;
   }
   .select_character_gender{
-        width: 200px;
+    width: 200px;
     padding: 5px;
     border-radius: 5px;
     border: 2px solid #d4a74b;
@@ -242,6 +245,8 @@
     color: white;
     box-sizing: border-box;
     line-height: 20px;
+    align-content: center;
+    align-items: center;
 
   }  
   .character_card {
