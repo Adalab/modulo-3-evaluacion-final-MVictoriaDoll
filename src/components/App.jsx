@@ -113,9 +113,6 @@ const handleFormSubmit = (ev) => {
 
       </main>
 
-      {/*<footer>
-        despues vemos
-      </footer>*/}
     </div>
   )
 }
