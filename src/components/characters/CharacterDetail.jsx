@@ -10,7 +10,16 @@ function CharacterDetail({ findCharacter }) {
     const params = useParams();
     const characterToShow = findCharacter(params.id);
 
-    const status = characterToShow.alive ? "Vivo" : 'Muerto';
+    const status = characterToShow.alive ? (
+        <>
+            Vivo <i className="fa-duotone fa-solid fa-heart-pulse"></i>
+        </>
+    )
+        : (
+            <>
+                Muerto <i className="fa-sharp-duotone fa-solid fa-heart-crack"></i>
+            </>
+        );
 
     const imageUrlDetail = characterToShow.image ? characterToShow.image : 'https://via.placeholder.com/210x295/ffffff/666666/?text=HarryPotter';
 
