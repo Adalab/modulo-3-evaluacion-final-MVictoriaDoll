@@ -4,7 +4,7 @@ import { translateData } from '../../Utils/Translations';
 
 
 function CharacterItem({ character }) {
-   
+
 
     const imageUrl = character.image ? character.image : 'https://via.placeholder.com/210x295/ffffff/666666/?text=HarryPotter';
 

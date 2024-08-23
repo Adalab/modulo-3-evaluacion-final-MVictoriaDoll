@@ -15,17 +15,17 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [nameFilter, setNameFilter] = useState('');
   const [houseFilter, setHouseFilter] = useState('gryffindor');
-  const [ genderFilter, setGenderFilter] = useState('all');
+  const [genderFilter, setGenderFilter] = useState('all');
 
 
-const handleFormSubmit = (ev) => {
-  ev.preventDefault(); 
-};
+  const handleFormSubmit = (ev) => {
+    ev.preventDefault();
+  };
 
 
   const handleInputName = (ev) => {
     setNameFilter(ev.currentTarget.value);
-   
+
   }
 
 
@@ -40,13 +40,13 @@ const handleFormSubmit = (ev) => {
     console.log('genero', genderFilter)
   }
 
-  
+
   let filteredCharacters = characters
     .filter(character => character.name.toLowerCase().includes(nameFilter.toLowerCase()))
     .filter(character => character.house.toLowerCase() === houseFilter.toLowerCase())
-    if (genderFilter !== 'all') {
-      filteredCharacters = filteredCharacters.filter(character => character.gender.toLowerCase() === genderFilter.toLowerCase());
-    }
+  if (genderFilter !== 'all') {
+    filteredCharacters = filteredCharacters.filter(character => character.gender.toLowerCase() === genderFilter.toLowerCase());
+  }
 
   useEffect(() => {
     let url = `https://hp-api.onrender.com/api/characters/house/${houseFilter}`;
@@ -91,20 +91,20 @@ const handleFormSubmit = (ev) => {
                   handleChangeHouseFilter={handleChangeHouseFilter}
                 />
                 <CharacterFilterGender
-                genderFilter={genderFilter}
-                handleChangeGenderFilter={handleChangeGenderFilter}
-                
+                  genderFilter={genderFilter}
+                  handleChangeGenderFilter={handleChangeGenderFilter}
+
                 />
 
               </form>
 
               {filteredCharacters.length === 0 ? (
-              <p>No hay ningún personaje que coincida con la palabra {nameFilter}.</p>
-            ) : (
-              <CharactersList
-                characters={filteredCharacters}
-              />
-            )}
+                <p>No hay ningún personaje que coincida con la palabra {nameFilter}.</p>
+              ) : (
+                <CharactersList
+                  characters={filteredCharacters}
+                />
+              )}
             </>
           } />
           <Route path='/detail/:id' element={<CharacterDetail findCharacter={findCharacter} />} />

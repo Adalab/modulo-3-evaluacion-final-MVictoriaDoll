@@ -9,22 +9,20 @@
   margin: 20px auto;
 }
 
-
-.form__character{
+.form__character {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 20px; 
-} 
+  margin-bottom: 20px;
+}
 
-.form_house{
+.form_house {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 30px;
-  margin-bottom: 20px; 
-
+  margin-bottom: 20px;
 }
 
 .form_gender {
@@ -32,7 +30,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .form_filters {
@@ -41,20 +39,7 @@
   align-items: center;
 }
 
-.input_character_search{
-  width: 300px;
-  padding: 5px;
-  border-radius: 5px;
-  border: 2px solid #d4a74b;
-  background-color: #877e7c;
-  font-size: 16px;
-  color: white;
-  box-sizing: border-box ;
-  line-height: 20px;
- 
-}
-
-.select_character_house{
+.input_character_search {
   width: 300px;
   padding: 5px;
   border-radius: 5px;
@@ -64,7 +49,18 @@
   color: white;
   box-sizing: border-box;
   line-height: 20px;
+}
 
+.select_character_house {
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #d4a74b;
+  background-color: #877e7c;
+  font-size: 16px;
+  color: white;
+  box-sizing: border-box;
+  line-height: 20px;
 }
 
 .select_character_gender {
@@ -77,7 +73,6 @@
   color: white;
   box-sizing: border-box;
   line-height: 20px;
-
 }
 
 .characters_card {
@@ -192,7 +187,7 @@
 
 .back-link {
   text-decoration: none;
-  color: grey ;
+  color: grey;
   margin-left: 160px;
   margin-bottom: 50px;
   font-size: 18px;
@@ -207,23 +202,36 @@
   text-align: center;
 }
 
-
 @media screen and (max-width: 768px) {
+  .page {
+    width: 95%;
+    padding: 0%;
+    margin-inline: 5px;
+  }
+
+  .form_filters {
+    width: 100%;
+  }
+
   .input_character_search {
-    width: 200px;
-    padding: 5px;
+    width: 80%;
+    padding: 3px;
     border-radius: 5px;
     border: 2px solid #d4a74b;
     background-color: #877e7c;
-    font-size: 12px;
+    font-size: 3vw;
     color: white;
     box-sizing: border-box;
-    line-height: 20px;
-    align-items: center;
+    margin-left: 10%;
+  }
+
+  .search_Name_btn {
+    color: white;
+    margin-left: 10%;
   }
 
   .select_character_house {
-    width: 200px;
+    width: 120%;
     padding: 5px;
     border-radius: 5px;
     border: 2px solid #d4a74b;
@@ -231,11 +239,10 @@
     font-size: 12px;
     color: white;
     box-sizing: border-box;
-    line-height: 20px;
     align-items: center;
   }
-  .select_character_gender{
-    width: 200px;
+  .select_character_gender {
+    width: 120%;
     padding: 5px;
     border-radius: 5px;
     border: 2px solid #d4a74b;
@@ -243,16 +250,14 @@
     font-size: 12px;
     color: white;
     box-sizing: border-box;
-    line-height: 20px;
     align-content: center;
     align-items: center;
-
-  }  
+  }
   .character_card {
     background-color: #d4a74b;
     border-radius: 8px;
     overflow: hidden;
-    width: 100%; 
+    width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
@@ -264,15 +269,17 @@
 
   .characters_card {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 20px;
-    width: 100%; 
+    width: 100%;
   }
 
-  .page {
-    width: 90%;
-    padding: 20px;
+  .character-detail img {
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    border-radius: 8px;
+    margin-right: 20px;
+    margin-top: 15px;
   }
-  
-
 }
